@@ -1,0 +1,195 @@
+# Sprint Status - Zavvy
+# generated: 2025-12-27
+# project: zavvy
+# project_key: zavvy
+# tracking_system: file-system
+# story_location: _bmad-output/implementation-artifacts
+
+# STATUS DEFINITIONS:
+# ==================
+# Epic Status:
+#   - backlog: Epic not yet started
+#   - in-progress: Epic actively being worked on
+#   - done: All stories in epic completed
+#
+# Epic Status Transitions:
+#   - backlog → in-progress: Automatically when first story is created (via create-story)
+#   - in-progress → done: Manually when all stories reach 'done' status
+#
+# Story Status:
+#   - backlog: Story only exists in epic file
+#   - ready-for-dev: Story file created in stories folder
+#   - in-progress: Developer actively working on implementation
+#   - review: Ready for code review (via Dev's code-review workflow)
+#   - done: Story completed
+#
+# Retrospective Status:
+#   - optional: Can be completed but not required
+#   - done: Retrospective has been completed
+#
+# WORKFLOW NOTES:
+# ===============
+# - Epic transitions to 'in-progress' automatically when first story is created
+# - Stories can be worked in parallel if team capacity allows
+# - SM typically creates next story after previous one is 'done' to incorporate learnings
+# - Dev moves story to 'review', then runs code-review (fresh context, different LLM recommended)
+
+generated: 2025-12-27
+project: zavvy
+project_key: zavvy
+tracking_system: file-system
+story_location: "_bmad-output/implementation-artifacts"
+
+development_status:
+  # Epic 0: Landing Page & Public Presence (10 stories)
+  epic-0: in-progress
+  0-1-landing-page-structure-hero: done
+  0-2-pain-points-solution-sections: done
+  0-3-how-it-works-section: done
+  0-4-features-pricing-sections: done
+  0-5-faq-section: done
+  0-6-waitlist-form-api: done
+  0-7-terms-of-use-page: done
+  0-8-privacy-policy-page: done
+  0-9-cookie-consent-footer: done
+  0-10-seo-analytics: review
+  epic-0-retrospective: optional
+
+  # Epic 1: Admin Operations & Template Management (10 stories)
+  epic-1: in-progress
+  1-1-monorepo-foundation-admin-app-setup: done
+  1-2-database-schema-admin-auth: ready-for-dev
+  1-3-tenant-list-status-view: backlog
+  1-4-whatsapp-template-crud: backlog
+  1-5-template-submission-to-meta: backlog
+  1-6-template-error-rate-monitoring: backlog
+  1-7-manual-message-sending: backlog
+  1-8-conversation-logs-view: backlog
+  1-9-system-health-dashboard: backlog
+  1-10-alert-system-notifications: backlog
+  epic-1-retrospective: optional
+
+  # Epic 2: Professional Onboarding & Account (7 stories)
+  epic-2: backlog
+  2-1-professional-registration-account-creation: backlog
+  2-2-professional-login-session: backlog
+  2-3-google-calendar-oauth-connection: backlog
+  2-4-first-service-configuration: backlog
+  2-5-availability-configuration: backlog
+  2-6-whatsapp-connection-activation: backlog
+  2-7-first-whatsapp-action-onboarding-completion: backlog
+  epic-2-retrospective: optional
+
+  # Epic 3: Service & Availability Configuration (10 stories)
+  epic-3: backlog
+  3-1-service-creation-with-duration-buffer: backlog
+  3-2-service-pricing-optional-display: backlog
+  3-3-service-list-management: backlog
+  3-4-multiple-service-selection-duration-calculation: backlog
+  3-5-working-days-configuration: backlog
+  3-6-working-hours-configuration: backlog
+  3-7-break-periods-configuration: backlog
+  3-8-date-specific-exceptions: backlog
+  3-9-manual-time-blocking: backlog
+  3-10-slot-calculation-engine: backlog
+  epic-3-retrospective: optional
+
+  # Epic 4: WhatsApp Command Center - Core (14 stories)
+  epic-4: backlog
+  4-1-whatsapp-webhook-infrastructure: backlog
+  4-2-immediate-acknowledgment-system: backlog
+  4-3-ai-intent-recognition: backlog
+  4-4-direct-button-list-response-processing: backlog
+  4-5-ai-response-generation: backlog
+  4-6-fallback-unrecognized-intent-handling: backlog
+  4-7-welcome-message-on-first-activation: backlog
+  4-8-help-menu-discoverability: backlog
+  4-9-contextual-action-suggestions: backlog
+  4-10-view-agenda-via-whatsapp: backlog
+  4-11-next-client-query: backlog
+  4-12-appointment-details-view: backlog
+  4-13-natural-language-schedule-questions: backlog
+  4-14-schedule-response-with-action-buttons: backlog
+  epic-4-retrospective: optional
+
+  # Epic 5: WhatsApp Command Center - Full Operations (24 stories)
+  epic-5: backlog
+  5-1-create-appointment-via-conversation: backlog
+  5-2-time-slot-selection-via-list-message: backlog
+  5-3-reschedule-appointment-via-whatsapp: backlog
+  5-4-cancel-appointment-via-whatsapp: backlog
+  5-5-automatic-client-notification-on-changes: backlog
+  5-6-block-time-slots-via-conversation: backlog
+  5-7-unblock-time-slots-via-conversation: backlog
+  5-8-view-active-time-blocks: backlog
+  5-9-search-clients-via-conversation: backlog
+  5-10-view-client-details-history: backlog
+  5-11-create-client-via-whatsapp-flow: backlog
+  5-12-edit-client-via-whatsapp-flow: backlog
+  5-13-view-services-via-whatsapp: backlog
+  5-14-create-service-via-whatsapp-flow: backlog
+  5-15-edit-service-via-whatsapp-flow: backlog
+  5-16-activate-deactivate-services: backlog
+  5-17-view-availability-configuration: backlog
+  5-18-modify-working-hours-via-conversation: backlog
+  5-19-add-date-exception-via-conversation: backlog
+  5-20-remove-exception-via-conversation: backlog
+  5-21-intelligent-web-redirect: backlog
+  5-22-graceful-error-handling: backlog
+  5-23-specific-fallback-suggestions: backlog
+  5-24-conversation-context-recovery: backlog
+  epic-5-retrospective: optional
+
+  # Epic 6: Web App Dashboard & Appointments (11 stories)
+  epic-6: backlog
+  6-1-dashboard-layout-status-overview: backlog
+  6-2-week-calendar-view: backlog
+  6-3-appointment-list-view: backlog
+  6-4-appointment-details-view: backlog
+  6-5-manual-appointment-creation-web: backlog
+  6-6-appointment-conflict-detection: backlog
+  6-7-alternative-slot-suggestions: backlog
+  6-8-automatic-slot-release: backlog
+  6-9-edit-appointment-web: backlog
+  6-10-cancel-appointment-web: backlog
+  6-11-automatic-appointment-creation-from-booking: backlog
+  epic-6-retrospective: optional
+
+  # Epic 7: Calendar Integration (7 stories)
+  epic-7: backlog
+  7-1-sync-appointments-to-google-calendar: backlog
+  7-2-read-busy-times-from-google-calendar: backlog
+  7-3-external-events-block-availability: backlog
+  7-4-update-google-calendar-on-changes: backlog
+  7-5-bidirectional-sync-worker: backlog
+  7-6-disconnect-google-calendar: backlog
+  7-7-reconnect-google-calendar: backlog
+  epic-7-retrospective: optional
+
+  # Epic 8: Client Booking Link (10 stories)
+  epic-8: backlog
+  8-1-public-booking-link-access: backlog
+  8-2-professional-profile-display: backlog
+  8-3-service-list-display: backlog
+  8-4-single-multiple-service-selection: backlog
+  8-5-calendar-date-selection: backlog
+  8-6-time-slot-display-selection: backlog
+  8-7-client-information-form: backlog
+  8-8-booking-confirmation-success-screen: backlog
+  8-9-client-whatsapp-confirmation: backlog
+  8-10-professional-whatsapp-notification: backlog
+  epic-8-retrospective: optional
+
+  # Epic 9: Billing & Subscription (10 stories)
+  epic-9: backlog
+  9-1-automatic-trial-start: backlog
+  9-2-subscription-status-display: backlog
+  9-3-subscribe-to-starter-plan: backlog
+  9-4-update-payment-method: backlog
+  9-5-cancel-subscription: backlog
+  9-6-trial-expiration-paywall: backlog
+  9-7-read-only-access-on-expiration: backlog
+  9-8-billing-email-notifications: backlog
+  9-9-stripe-webhook-handler: backlog
+  9-10-subscription-reactivation: backlog
+  epic-9-retrospective: optional

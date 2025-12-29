@@ -1,0 +1,29 @@
+{
+  "name": "zavvy",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "packageManager": "pnpm@9.15.1",
+  "scripts": {
+    "dev": "turbo run dev",
+    "dev:admin": "turbo run dev --filter=@zavvy/admin",
+    "dev:landing": "turbo run dev --filter=@zavvy/landing",
+    "dev:api": "turbo run dev --filter=@zavvy/api",
+    "db:push": "turbo run db:push --filter=@zavvy/db",
+    "db:studio": "turbo run db:studio --filter=@zavvy/db",
+    "build": "turbo run build",
+    "lint": "turbo run lint",
+    "typecheck": "turbo run typecheck",
+    "test": "turbo run test",
+    "clean": "turbo run clean && rm -rf node_modules"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.17.0",
+    "eslint": "^9.17.0",
+    "eslint-plugin-react-hooks": "^5.1.0",
+    "eslint-plugin-react-refresh": "^0.4.16",
+    "turbo": "^2.3.3",
+    "typescript": "^5.7.2",
+    "typescript-eslint": "^8.18.2"
+  }
+}
