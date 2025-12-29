@@ -1,6 +1,6 @@
 # Story 1.2: Database Schema & Admin Auth
 
-Status: review
+Status: done
 
 ---
 
@@ -357,18 +357,83 @@ All 6 tasks completed successfully:
 
 ## File List
 
-### New Files
+### New Files (packages/db)
+- `packages/db/src/client.ts` - PostgreSQL connection with Drizzle
+- `packages/db/src/index.ts` - Package exports
+- `packages/db/src/schema/index.ts` - Schema aggregation
+- `packages/db/src/schema/users.ts` - Users table
+- `packages/db/src/schema/sessions.ts` - Sessions table
+- `packages/db/src/schema/accounts.ts` - Accounts table (OAuth/email)
+- `packages/db/src/schema/verifications.ts` - Email verification tokens
+- `packages/db/src/schema/organizations.ts` - Organizations table
+- `packages/db/src/schema/members.ts` - User-organization membership
+- `packages/db/src/schema/invitations.ts` - Organization invitations
+- `packages/db/src/schema/relations.ts` - Drizzle relations
+- `packages/db/drizzle.config.ts` - Drizzle Kit configuration
+- `packages/db/package.json` - Package configuration
+
+### New Files (packages/auth)
+- `packages/auth/src/server.ts` - Better Auth server config
+- `packages/auth/src/client.ts` - Better Auth React client
+- `packages/auth/src/index.ts` - Package exports
+- `packages/auth/package.json` - Package configuration
+
+### New Files (apps/api)
+- `apps/api/src/index.ts` - Hono app entry point
 - `apps/api/src/middleware/auth.ts` - Auth middleware with session extraction
 - `apps/api/src/middleware/organization.ts` - Organization scoping middleware
 - `apps/api/src/middleware/index.ts` - Middleware exports
+- `apps/api/package.json` - Package configuration
 
-### Modified Files
-- `packages/db/tsconfig.json` - Added node types
-- `packages/auth/tsconfig.json` - Added node types
-- `packages/auth/src/client.ts` - Fixed import.meta.env handling
-- `apps/api/tsconfig.json` - Simplified to use bundler moduleResolution
-- `apps/admin/src/lib/auth.ts` - Simplified to re-export from @zavvy/auth/client
-- `apps/admin/src/pages/Login.tsx` - Fixed unused variable lint error
+### New Files (apps/admin)
+- `apps/admin/src/App.tsx` - Main app with TanStack Router
+- `apps/admin/src/main.tsx` - React entry point
+- `apps/admin/src/lib/auth.ts` - Auth re-exports
+- `apps/admin/src/routes/__root.tsx` - Root route with ProtectedRoute wrapper
+- `apps/admin/src/routes/index.tsx` - Dashboard (protected)
+- `apps/admin/src/routes/login.tsx` - Login page
+- `apps/admin/src/routeTree.gen.ts` - Generated route tree
+- `apps/admin/src/pages/Login.tsx` - Login page component (legacy)
+- `apps/admin/src/pages/Dashboard.tsx` - Dashboard component (legacy)
+- `apps/admin/package.json` - Package configuration
+- `apps/admin/vite.config.ts` - Vite configuration
+- `apps/admin/index.html` - HTML entry point
+
+### Modified Files (Code Review Fixes)
+- `packages/auth/src/client.ts` - Removed `any` type, added proper interfaces
+- `apps/api/src/index.ts` - Connected auth/org middlewares, removed console.log
+- `apps/admin/src/App.tsx` - Implemented TanStack Router
+- `apps/admin/src/routes/__root.tsx` - Added ProtectedRoute component
+- `apps/admin/src/routes/index.tsx` - Uses ProtectedRoute wrapper
+- `apps/admin/src/routes/login.tsx` - Proper redirect when authenticated
+
+---
+
+## Senior Developer Review (AI)
+
+### Review Date: 2025-12-29
+
+### Issues Found & Fixed:
+
+**CRITICAL (Fixed):**
+1. TanStack Router was in package.json but NOT used - Implemented proper file-based routing
+2. Middlewares existed but weren't connected to routes - Connected to API v1 routes
+3. No proper protected route wrapper - Created ProtectedRoute component
+
+**HIGH (Fixed):**
+4. `console.log` used instead of Pino logger - Removed (using Hono logger middleware)
+5. `any` type in auth client - Replaced with proper TypeScript interfaces
+6. File List was incomplete - Updated with all files
+
+**MEDIUM (Not Fixed - Future Story):**
+7. Inline styles instead of Tailwind CSS - Requires separate setup story
+8. Missing explicit database indexes - Can be added in optimization story
+9. No password complexity validation - Can be added in security hardening story
+
+### Recommendation: APPROVED with notes
+- All critical and high issues have been fixed
+- Medium issues deferred to future stories
+- Code now properly implements AC1-AC5
 
 ---
 
@@ -378,3 +443,4 @@ All 6 tasks completed successfully:
 |------|--------|--------|
 | 2025-12-29 | Story created from Epic 1 with Context7 research | Claude Opus 4.5 |
 | 2025-12-29 | Completed Task 6: Organization Middleware, fixed TypeScript configs and lint issues | Claude Opus 4.5 |
+| 2025-12-29 | Code Review: Fixed TanStack Router, connected middlewares, removed any type, updated File List | Claude Opus 4.5 |
