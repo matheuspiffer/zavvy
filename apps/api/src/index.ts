@@ -9,7 +9,9 @@ import {
   organizationMiddleware,
   requireOrganization,
   type OrganizationContext,
+  type AuthContext,
 } from './middleware'
+import { adminRouter } from './routes/admin'
 
 // Create main app
 const app = new Hono()
@@ -33,6 +35,13 @@ app.get('/health', (c) => c.json({ status: 'ok', timestamp: new Date().toISOStri
 
 // Better Auth routes (public)
 app.on(['GET', 'POST'], '/api/auth/**', (c) => auth.handler(c.req.raw))
+
+// Admin API routes (for Zavvy operators)
+const adminApi = new Hono<AuthContext>()
+adminApi.use('*', authMiddleware)
+adminApi.use('*', requireAuth)
+adminApi.route('/', adminRouter)
+app.route('/api/admin', adminApi)
 
 // API v1 routes with auth middleware
 const apiV1 = new Hono<OrganizationContext>()

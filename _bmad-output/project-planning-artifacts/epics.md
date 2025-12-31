@@ -11,7 +11,7 @@ user_name: 'Piffer'
 date: '2025-12-27'
 status: 'complete'
 totalEpics: 10
-totalStories: 113
+totalStories: 114
 frCoverage: '132/132 (100%)'
 ---
 
@@ -769,7 +769,7 @@ So that we can track visitors and rank well in search engines.
 
 **Goal:** Operadores Zavvy podem gerenciar templates WhatsApp, submeter para aprovação Meta, e monitorar saúde do sistema.
 
-**FRs:** FR103-FR114 | **Stories:** 10
+**FRs:** FR103-FR114 | **Stories:** 11
 
 ---
 
@@ -813,6 +813,49 @@ So that only authorized team members can access operations.
 - PostgreSQL with RLS policies
 
 **FRs covered:** Foundation for FR103-FR114
+
+---
+
+### Story 1.2.5: Tailwind CSS & shadcn/ui Setup
+
+As a **Zavvy developer**,
+I want Tailwind CSS and shadcn/ui configured in the admin app and shared UI package,
+So that all components follow the design system specification.
+
+**Acceptance Criteria:**
+
+**Given** the admin app exists
+**When** I import components from @zavvy/ui
+**Then** they render with correct Tailwind CSS styles
+
+**Given** packages/ui is initialized
+**When** I run `pnpm ui:add button` (or similar)
+**Then** shadcn/ui components are added to the shared package
+
+**Given** apps/admin uses @zavvy/ui
+**When** the app renders
+**Then** Tailwind utility classes work correctly
+**And** design tokens (colors, spacing, typography) match UX specification
+
+**Given** the existing Login.tsx and Dashboard.tsx components
+**When** they are updated
+**Then** inline styles are replaced with Tailwind classes
+**And** shared components from @zavvy/ui are used
+
+**Technical Notes:**
+- Initialize Tailwind CSS in apps/admin with proper config
+- Create packages/ui with shadcn/ui setup (`npx shadcn@latest init`)
+- Configure tailwind.config.ts with design tokens:
+  - Primary color: Trust Green (#10B981)
+  - Font: Inter (or Geist)
+  - Border radius: 8px-12px for friendly feel
+- Add base shadcn/ui components: Button, Input, Card, Dialog, Form, Toast
+- Export components from @zavvy/ui/src/index.ts
+- Update apps/admin/tailwind.config.ts to extend packages/ui config
+- Refactor Login.tsx and Dashboard.tsx to use Tailwind + shared components
+- Ensure proper monorepo config for Tailwind content paths
+
+**FRs covered:** Infrastructure (enables polished UI for FR103-FR114)
 
 ---
 
@@ -2218,7 +2261,7 @@ As a **professional**, I want to reactivate my subscription after cancellation o
 | Epic | Stories | FRs |
 |------|---------|-----|
 | Epic 0: Landing Page | 10 | FR115-FR132 |
-| Epic 1: Admin Operations | 10 | FR103-FR114 |
+| Epic 1: Admin Operations | 11 | FR103-FR114 |
 | Epic 2: Professional Onboarding | 7 | FR1-FR7 |
 | Epic 3: Service & Availability | 10 | FR8-FR20 |
 | Epic 4: WhatsApp Core | 14 | FR21-FR37 |
@@ -2227,4 +2270,4 @@ As a **professional**, I want to reactivate my subscription after cancellation o
 | Epic 7: Calendar Integration | 7 | FR82-FR86 |
 | Epic 8: Booking Link | 10 | FR87-FR94 |
 | Epic 9: Billing | 10 | FR95-FR102 |
-| **Total** | **113** | **132 FRs (100%)** |
+| **Total** | **114** | **132 FRs (100%)** |

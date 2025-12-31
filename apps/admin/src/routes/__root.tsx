@@ -23,16 +23,8 @@ export function ProtectedRoute({ children }: { children: React.ReactNode }) {
 
   if (isPending) {
     return (
-      <div
-        style={{
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          minHeight: '100vh',
-          fontFamily: 'system-ui, -apple-system, sans-serif',
-        }}
-      >
-        Loading...
+      <div className="flex items-center justify-center min-h-screen font-sans">
+        Carregando...
       </div>
     )
   }

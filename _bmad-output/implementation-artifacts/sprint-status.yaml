@@ -55,13 +55,14 @@ development_status:
   0-10-seo-analytics: review
   epic-0-retrospective: optional
 
-  # Epic 1: Admin Operations & Template Management (10 stories)
+  # Epic 1: Admin Operations & Template Management (11 stories)
   epic-1: in-progress
   1-1-monorepo-foundation-admin-app-setup: done
   1-2-database-schema-admin-auth: done
-  1-3-tenant-list-status-view: backlog
-  1-4-whatsapp-template-crud: backlog
-  1-5-template-submission-to-meta: backlog
+  1-2-5-tailwind-shadcn-setup: done
+  1-3-organization-list-status-view: done
+  1-4-whatsapp-template-crud: review
+  1-5-template-submission-to-meta: ready-for-dev
   1-6-template-error-rate-monitoring: backlog
   1-7-manual-message-sending: backlog
   1-8-conversation-logs-view: backlog
